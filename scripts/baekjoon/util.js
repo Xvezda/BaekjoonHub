@@ -64,7 +64,13 @@ function injectStyle() {
     border-color: #eee; \
     border-top-color: #3E67EC; \
     border-radius: 50%; \
-    animation: loadingspin 1.0s linear infinite; } @keyframes loadingspin { 100% { transform: rotate(360deg) }}';
+    animation: loadingspin 1.0s linear infinite; } @keyframes loadingspin { 100% { transform: rotate(360deg) }} \
+    \
+    .BaekjoonHub_update {\
+    border-radius: 2px;\
+    }';
+
+  
   document.head.append(style);
 }
 

@@ -173,7 +173,7 @@ function findFromResultTable() {
 */
 
 async function findProblemDetailsAndSubmissionCode(problemId, submissionId) {
-  if (debug) console.log('in find with promise');
+
   if (checkElem(problemId) && checkElem(submissionId)) {
     const DescriptionParse = fetch(`https://www.acmicpc.net/problem/${problemId}`, { method: 'GET' });
     const CodeParse = fetch(`https://www.acmicpc.net/source/download/${submissionId}`, { method: 'GET' });
@@ -194,7 +194,6 @@ async function findProblemDetailsAndSubmissionCode(problemId, submissionId) {
         }
         /* Get Code */
         const code = codeText;
-        if (debug) console.log('findWithPromise - code', code);
         /* Get Solved Response */
         const { tags } = solvedJson;
         const title = solvedJson.titleKo;

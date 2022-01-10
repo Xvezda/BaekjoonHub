@@ -319,7 +319,7 @@ function insertBoard(delList, token, hook){
   yesButton.onclick = async () =>{
 
     const deletePromise = [];
-    delList.map(async (data) =>{
+    delList.map((data) =>{
       const f1 = fetch(`https://api.github.com/repos/${hook}/contents/${data.file1}`, {
         method: 'DELETE',
         body: JSON.stringify({sha: data.Sha1, message: "백준허브 업데이트"}),
@@ -336,10 +336,11 @@ function insertBoard(delList, token, hook){
       .then(res => res.json())
       .then(data => console.log(data));
 
-      deletePromise.add(...{f1, f2});
+      deletePromise.push(f1);
+      deletePromise.push(f2);
     });
 
-    if(debug) console.log(deletePromise);
+    if(debug) console.log('deletePromise', deletePromise);
     Promise.all(deletePromise)
     .then(prom => Promise.all(prom))
     .then(() => console.log('삭제가 완료되었습니다'));
